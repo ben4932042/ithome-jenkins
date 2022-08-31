@@ -39,17 +39,6 @@ RUN ln -s pip3.7 pip
 RUN ln -s python3.7 python3
 RUN ln -s python3.7 python
 
-# install command tool
-WORKDIR /
-RUN mkdir /opt/utils
-COPY utils /opt/utils
-ENV PATH="${PATH}:/opt/utils/bin"
-
-COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
-
-USER jenkins
-
 ENTRYPOINT [ "/opt/bitnami/scripts/jenkins/entrypoint.sh" ]
 CMD [ "/opt/bitnami/scripts/jenkins/run.sh" ]
 
