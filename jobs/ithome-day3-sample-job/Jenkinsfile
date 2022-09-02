@@ -5,7 +5,7 @@ pipeline {
         stage('ithome 2022 pipeline') {
             // 行為宣告
             steps {
-                echo 'Hello Ben ~'
+                echo 'Hello Github ~'
             }
         }
     }
