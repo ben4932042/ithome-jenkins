@@ -36,3 +36,13 @@ DOWNLOADER_MIDDLEWARES = {
 SPIDER_MIDDLEWARES = {
     "scrapy_poet.RetryMiddleware": 275,
 }
+
+SPIDERMON_ENABLED = True
+
+EXTENSIONS = {
+    'spidermon.contrib.scrapy.extensions.Spidermon': 500,
+}
+
+SPIDERMON_SPIDER_CLOSE_MONITORS = (
+    'src.monitors.SpiderCloseMonitorSuite',
+)
