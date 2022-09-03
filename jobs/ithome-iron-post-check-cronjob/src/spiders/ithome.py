@@ -14,10 +14,10 @@ class IthomeSpider(scrapy.Spider):
         yield scrapy.Request(
             url=self.ironman_man_page,
             callback=self.parse,
-            meta={'stop_contiune': False}
+            cb_kwargs={'contiune_crawl_or_not': True}
         )
 
-    def parse(self, response):
+    def parse(self, response, contiune_crawl_or_not):
         content_list = response.xpath('//div[@class="qa-list profile-list ir-profile-list"]')
         for content in content_list:
             item = IthomeContentInfoItem()
@@ -31,10 +31,10 @@ class IthomeSpider(scrapy.Spider):
             yield item
 
         page_url_list = response.xpath('//ul[@class="pagination"]/li/a/@href').extract()
-        if not response.meta.get('stop_continue'):
+        if contiune_crawl_or_not:
             for next_page_url in set(page_url_list):
                 yield scrapy.Request(
                     url=next_page_url,
                     callback=self.parse,
-                    meta={'stop_continue': True}
+                    cb_kwargs={'contiune_crawl_or_not': False}
                 )
