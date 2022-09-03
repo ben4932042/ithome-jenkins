@@ -29,3 +29,10 @@ DEFAULT_REQUEST_HEADERS = {
 ITEM_PIPELINES = {
     'src.pipelines.IthomePipeline': 300,
 }
+
+DOWNLOADER_MIDDLEWARES = {
+    "scrapy_poet.InjectionMiddleware": 543,
+}
+SPIDER_MIDDLEWARES = {
+    "scrapy_poet.RetryMiddleware": 275,
+}
