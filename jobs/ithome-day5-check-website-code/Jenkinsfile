@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+    stages {
+        stage ("Check www.example.com response code") {
+            withCredentials([string(credentialsId: 'ithome-telegram-bot-token', variable: 'TOKEN')]){
+                withCredentials([string(credentialsId: 'ithome-telegram-notification-group', variable: 'GROUP_ID')]){
+                    steps{
+                        sh  '''
+                            command=$(curl -o /dev/null -s -w %{http_code} www.example.com)
+                            
+                            if [ "${command}" != "200" ]; then
+                            message="www.example.com response code != 200."
+                            curl -X GET "https://api.telegram.org/bot${TOKEN}/sendMessage" \
+                                -d "chat_id=${GROUP_ID}&text=${message}"
+                            fi                
+                        '''
+                    }
+                }
+            }
+        }
+    }
+}
