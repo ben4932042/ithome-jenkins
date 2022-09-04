@@ -2,9 +2,9 @@ pipeline {
     agent any
     stages {
         stage ("Check www.example.com response code") {
-            withCredentials([string(credentialsId: 'ithome-telegram-bot-token', variable: 'TOKEN')]){
-                withCredentials([string(credentialsId: 'ithome-telegram-notification-group', variable: 'GROUP_ID')]){
-                    steps{
+            steps{
+                withCredentials([string(credentialsId: 'ithome-telegram-bot-token', variable: 'TOKEN')]){
+                    withCredentials([string(credentialsId: 'ithome-telegram-notification-group', variable: 'GROUP_ID')]){
                         sh  '''
                             command=$(curl -o /dev/null -s -w %{http_code} www.example.com)
                             
