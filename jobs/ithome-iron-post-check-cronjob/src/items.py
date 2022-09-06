@@ -1,3 +1,4 @@
+# pylint: disable=no-member
 """ithome extract data item"""
 import datetime
 import pydantic
