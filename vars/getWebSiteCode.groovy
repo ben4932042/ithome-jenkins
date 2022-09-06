@@ -10,12 +10,10 @@ def call(String domain, Integer code) {
         }
     }
     stage ("Check response code") {
-        steps{
-            script{
-                if ( response_code != code ){
-                    sh "false"
-                }             
-            }
+        script{
+            if ( response_code != code ){
+                sh "false"
+            }             
         }
     }        
 }
