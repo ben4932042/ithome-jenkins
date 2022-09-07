@@ -35,7 +35,7 @@ def call(Map pipelineParams) {
                     withCredentials([string(credentialsId: 'ithome-telegram-bot-token', variable: 'TOKEN')]){
                         withCredentials([string(credentialsId: 'ithome-telegram-notification-group', variable: 'GROUP_ID')]){
                             sh """#!/bin/bash
-                                curl -X GET https://api.telegram.org/bot${TOKEN}/sendMessage -d "chat_id=${GROUP_ID}&text=\"${pipelineParams.domain} response code != ${pipelineParams.code}.\""
+                                curl -X GET https://api.telegram.org/bot${TOKEN}/sendMessage -d "chat_id=${GROUP_ID}&text=\"\"${pipelineParams.domain} response code != ${pipelineParams.code}.\"\""
                             """
                         }
                     }
