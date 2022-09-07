@@ -1,0 +1,3 @@
+library 'ithome-utils'
+
+webSiteCodePipeline(domain: 'www.example.com', code: 200)
