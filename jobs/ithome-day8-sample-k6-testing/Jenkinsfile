@@ -2,7 +2,7 @@ pipeline{
     agent any
     stages{
         stage('Run k6 testing'){
-				    step{
+				    steps{
                 sh "k6 run ithome-sample.js"
 						}
         }
