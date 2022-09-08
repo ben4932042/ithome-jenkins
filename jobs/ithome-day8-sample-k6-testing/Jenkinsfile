@@ -1,0 +1,8 @@
+pipeline{
+    agent any
+    stages{
+        stage('Run k6 testing'){
+                sh "k6 run ithome-sample.js"
+        }
+    }
+}
