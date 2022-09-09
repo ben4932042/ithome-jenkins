@@ -13,7 +13,7 @@ export const options = {
   },
   ext: {
     loadimpact: {
-      projectID: 3600287,
+      projectID: 3600288,
       name: "ithome-day9-sample-k6-testing"
     }
   }
