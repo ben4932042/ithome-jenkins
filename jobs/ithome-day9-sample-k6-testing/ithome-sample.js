@@ -22,9 +22,3 @@ export const options = {
 export default function () {
   http.get('https://test.k6.io');
 }
-
-export function handleSummary(data) {
-  return {
-	    "ithome-sample.html": htmlReport(data),
-  	};
-}
