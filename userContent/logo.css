@@ -1,0 +1,23 @@
+@charset “utf-8”;
+
+#header .logo {
+    background: url(/userContent/ithome-iron.png);
+   background-repeat: no-repeat;
+   background-position: 0;
+   height: 55px;
+}
+
+.logo img {
+  display: none;
+}
+
+.logo:after {
+  content: "從零開始的 Jenkins 之旅";
+  font-weight: bold;
+  font-size: 1.575em;
+  color: white;
+  white-space: nowrap;
+  text-align-last: right;
+  width: 550px;
+  height: 45px;
+} 
