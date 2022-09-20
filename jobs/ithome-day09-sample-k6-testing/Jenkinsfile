@@ -3,7 +3,7 @@ pipeline {
         label "master"
     }
     environment {
-        K6_SCRIPT = "${WORKSPACE}/jobs/ithome-day9-sample-k6-testing/ithome-sample.js"
+        K6_SCRIPT = "${WORKSPACE}/jobs/ithome-day09-sample-k6-testing/ithome-sample.js"
     }    
     stages {
         stage('K6 cloud login'){
