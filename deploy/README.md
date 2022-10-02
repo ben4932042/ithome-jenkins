@@ -14,7 +14,7 @@ helm install {{ RELEASE_NAME }} bitnami/jenkins -v ./values.yaml
 ## Production
 ```
 helm install {{ RELEASE_NAME }} bitnami/jenkins \
-    -v ./values.yaml
+    -v ./values.yaml \
     --set jenkinsUser={{ USER_NAME }} \
     --set jenkinsPassword={{ PASSWORD }} \
     --set persistence.enabled=true \ 
